@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row>
-      <v-col v-for="result in results" :key="result.id" cols="12" lg="4" md="6">
+      <v-col v-for="bird in birds" :key="bird.id" cols="12" lg="4" md="6">
         <v-hover
           v-slot:default="{ hover }"
           open-delay="200"
@@ -11,9 +11,9 @@
             max-width="400"
             :elevation="hover ? 16 : 2"
           >
-            <v-img class="white--text align-end" height="200px" :src="result.images.main">
+            <v-img class="white--text align-end" height="200px" :src="bird.data.images.main">
             </v-img>
-            <h2>{{ result.name.spanish }}</h2>
+            <h2>{{ bird.data.name.spanish }}</h2>
           </v-card>
         </v-hover>
       </v-col>
@@ -22,11 +22,16 @@
 </template>
 
 <script>
-export default {
-
-}
+import { mapActions, mapState } from 'vuex'
+  export default {
+     computed: {
+      ...mapState(['bird']),
+    },
+    methods: {
+      ...mapActions(['getBird']),
+    },
+  }
 </script>
-
 <style>
 
 </style>
