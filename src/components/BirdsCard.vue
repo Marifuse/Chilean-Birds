@@ -10,7 +10,7 @@
       />
     </header>
     <v-row>
-      <v-col v-for="bird in computedBirds" :key="bird.uid" cols="12" lg="4" md="6" class="mt-10">
+      <v-col v-for="bird in computedBirds" :key="bird.uid" cols="12" lg="4" md="6" class="mt-10 mb-10">
         <v-hover
           v-slot:default="{ hover }"
           open-delay="200"
@@ -59,16 +59,16 @@ import ModalBird from './ModalBird'
           bird.name.english.toLowerCase().includes(this.search.toLowerCase()) ||
           bird.name.spanish.toLowerCase().includes(this.search.toLowerCase()) ||
           bird.name.latin.toLowerCase().includes(this.search.toLowerCase())
-        );
-      });
-    },
+          )
+        })
+      }
     },
     methods: {
       ...mapActions(['getBirds', 'setCurrentBird']),
         displayDialog(bird) {
         this.setCurrentBird(bird._links.self);
         this.dialog = true;
-      },
+      }
     },
     created() {
       this.getBirds()

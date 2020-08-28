@@ -5,7 +5,7 @@
         <v-card-title class="headline grey lighten-2">
           {{ bird.uid }}
         </v-card-title>
-        <v-img :src="bird.images.main" height="194"></v-img>
+        <v-img :src="bird.images.main" height="500px"></v-img>
         <v-card-text>
           {{ bird.didyouknow }}
         </v-card-text>
