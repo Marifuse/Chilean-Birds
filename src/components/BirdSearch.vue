@@ -2,7 +2,7 @@
   <div>
     <header class="header__container">
       <h1>Chilean Birds</h1>
-      <v-text-field class="search pt-10" label='Buscador de Aves Chilenas' 
+      <v-text-field class="search mt-10 pl-3 pr-3" label='Buscador de Aves Chilenas' 
         prepend-icon='mdi-magnify'
         color="pink darken-1"
       />
@@ -26,6 +26,8 @@ export default {
 .search {
   width: 30em;
   margin: auto;
+  background-color: #FFF;
+  border-radius: 2em;
 }
 
 </style>

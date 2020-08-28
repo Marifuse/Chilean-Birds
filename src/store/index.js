@@ -4,22 +4,22 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
-const baseURL = 'https://aves.ninjas.cl/api/birds';
+// const baseURL = 'https://aves.ninjas.cl/api/birds';
 
 export default new Vuex.Store({
   state: {
-    bird: {}
+    birds: []
   },
   mutations: {
-    GET_BIRD(state, bird) { state.bird = bird },
+    GET_BIRDS(state, birds) { state.birds = birds },
   },
   actions: {
-    getBird({commit}) {
+    getBirds({commit}) {
       axios
-       .get(`${baseURL}`)
-       .then((response) => {
-          commit('GET_BIRD', response.data)
-       })
+      .get('https://aves.ninjas.cl/api/birds')
+      .then((response) => {
+        commit('GET_BIRDS', response.data)
+      })
     }
   },
   modules: {
