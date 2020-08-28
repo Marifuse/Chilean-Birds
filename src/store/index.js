@@ -4,8 +4,6 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
-// const baseURL = 'https://aves.ninjas.cl/api/birds';
-
 export default new Vuex.Store({
   state: {
     birds: [],
