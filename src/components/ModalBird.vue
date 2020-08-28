@@ -2,7 +2,7 @@
   <div>
     <v-dialog v-model="dialog" width="500">
       <v-card v-if="bird.images">
-        <v-card-title class="headline grey lighten-2">
+        <v-card-title class="headline pink darken-1">
           {{ bird.uid }}
         </v-card-title>
         <v-img :src="bird.images.main" height="500px"></v-img>
@@ -12,7 +12,7 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="closeDialog()">
+          <v-btn color="pink" text @click="closeDialog()">
             Cerrar Cuadro
           </v-btn>
         </v-card-actions>

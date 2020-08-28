@@ -19,11 +19,12 @@
             class="mx-auto text-center"
             max-width="400"
             :elevation="hover ? 16 : 2"
+            
           >
             <v-img class="white--text align-end" height="500px" :src="bird.images.main">
             </v-img>
             <h2>{{ bird.name.spanish }}</h2>
-            <v-btn color="pink" text class="mt-5 mb-5">
+            <v-btn color="pink" text class="mt-5 mb-5" @click="showDialog(bird)">
               Información
             </v-btn>
           </v-card>
@@ -65,7 +66,7 @@ import ModalBird from './ModalBird'
     },
     methods: {
       ...mapActions(['getBirds', 'setCurrentBird']),
-        displayDialog(bird) {
+        showDialog(bird) {
         this.setCurrentBird(bird._links.self);
         this.dialog = true;
       }
