@@ -14,21 +14,42 @@
             <v-img class="white--text align-end" height="500px" :src="bird.images.main">
             </v-img>
             <h2>{{ bird.name.spanish }}</h2>
+            <v-btn color="pink" text class="mt-5 mb-5">
+              Información
+            </v-btn>
           </v-card>
         </v-hover>
       </v-col>
     </v-row>
+    <modal-bird
+      :dialog="dialog"
+      :bird="currentBird"
+      @close-dialog="dialog = false"
+    ></modal-bird>
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex'
+import ModalBird from './ModalBird'
   export default {
+    data() {
+      return {
+        dialog: false,
+      };
+    },
+    components: {
+      ModalBird,
+    },
     computed: {
       ...mapState(['birds']),
     },
     methods: {
-      ...mapActions(['getBirds']),
+      ...mapActions(['getBirds', 'setCurrentBird']),
+        displayDialog(bird) {
+        this.setCurrentBird(bird._links.self);
+        this.dialog = true;
+      },
     },
     created() {
       this.getBirds()
